@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<h1>Payslip</h1>
+<table border="1" style="border-collapse:collapse;">
+    <tbody>
+    <tr>
+        <td>Employee Number</td>
+        <td>{{ employee.identifier }}</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>{{ employee.first_name }} {{ employee.surname }}</td>
+    </tr>
+    <tr>
+        <td>Role</td>
+        <td>{{ employee.role }}</td>
+    </tr>
+    <tr>
+        <td>ID Card Number</td>
+        <td>{{ employee.registration_number }}</td>
+    </tr>
+    <tr>
+        <td>Annual Salary</td>
+        <td>{{ organisation.currency }} {{ "{:,.2f}".format(employee.gross_annual_salary) }}</td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+
+<table border="1" style="border-collapse:collapse;">
+    <tbody>
+    <tr>
+        <td>Period From</td>
+        <td>{{ period.start }}</td>
+    </tr>
+    <tr>
+        <td>Period To</td>
+        <td>{{ period.end }}</td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+
+<table border="1" style="border-collapse:collapse;">
+    <thead>
+    <tr>
+        <th></th>
+        <th></th>
+        <th><strong>Current Period</strong></th>
+        <th><strong>Year to Date</strong></th>
+        <th><strong>Projected Year</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><strong>Income Computation</strong></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><strong>Basic Pay</strong></td>
+        <td>{{ time_worked }} mths</td>
+        <td>{{ "{:,.2f}".format(line_items.basic_pay.current_period) }}</td>
+        <td>{{ "{:,.2f}".format(line_items.basic_pay.year_to_date) }}</td>
+        <td>{{ "{:,.2f}".format(line_items.basic_pay.projected_yearly) }}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><strong>Gross Income</strong></td>
+        <td></td>
+        <td>{{ "{:,.2f}".format(line_items.basic_pay.current_period) }}</td>
+        <td>{{ "{:,.2f}".format(line_items.basic_pay.year_to_date) }}</td>
+        <td>{{ "{:,.2f}".format(line_items.basic_pay.projected_yearly) }}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><strong>Tax Deductions</strong></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><strong>Tax (FSS)</strong></td>
+        <td>{{ employee.tax_computation.value }}</td>
+        <td>0.00</td>
+        <td>0.00</td>
+        <td>0.00</td>
+    </tr>
+    <tr>
+        <td><strong>Social Security Contrib.</strong></td>
+        <td>2 weeks</td>
+        <td>-{{ "{:,.2f}".format(line_items.social_security_contribution_employee.current_period) }}</td>
+        <td>-{{ "{:,.2f}".format(line_items.social_security_contribution_employee.year_to_date) }}</td>
+        <td>-{{ "{:,.2f}".format(line_items.social_security_contribution_employee.projected_yearly) }}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><strong>Total Deductions</strong></td>
+        <td></td>
+        <td>-{{ "{:,.2f}".format(line_items.total_deductions.current_period) }}</td>
+        <td>-{{ "{:,.2f}".format(line_items.total_deductions.year_to_date) }}</td>
+        <td>-{{ "{:,.2f}".format(line_items.total_deductions.projected_yearly) }}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><strong>Net Income</strong></td>
+        <td></td>
+        <td>{{ "{:,.2f}".format(line_items.net_employee_pay.current_period) }}</td>
+        <td>{{ "{:,.2f}".format(line_items.net_employee_pay.year_to_date) }}</td>
+        <td>{{ "{:,.2f}".format(line_items.net_employee_pay.projected_yearly) }}</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

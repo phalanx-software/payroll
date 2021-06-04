@@ -1,0 +1,7 @@
+category,rate_type,rate,maximum
+A,Fixed,0.20,0.20
+B,Fixed,0.54,0.54
+C/D #1,Rate,0.003,1.08
+C/D #2,Rate,0.003,1.44
+E,Rate,0.003,0.13
+F,Rate,0.003,0.24

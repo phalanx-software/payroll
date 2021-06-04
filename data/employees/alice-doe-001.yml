@@ -1,0 +1,23 @@
+Identifier: E-001
+FirstName: Alice
+Surname: Doe
+Address: 10, Triq il-Kbira, Mosta
+Postcode: MST1000
+TelephoneNumber: "+35679123457"
+RegistrationNumber: "123456M"
+# SocialSecurityNumber: "1234567"
+# SpouseRegistrationNumber: "0123456"
+Role: Software Developer
+Email: alice.doe@phalanx.software
+StartDate: 2020-02-01
+# EndDate: 2020-12-31
+HoursPerWeek: 32
+TaxComputation: single
+SocialSecurityCategory: "C/D #2"
+GrossAnnualSalary: 24000
+PriorTaxInformation:
+  GrossAnnualEmoluments: 1200
+  IncomeTax: 0
+ManualAdjustments:
+  - Date: "2019-09-25"
+    Amount: 30.25
